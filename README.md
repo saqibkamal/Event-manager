@@ -11,3 +11,6 @@ Frameworks Used:<br>1. Android Studio(Front End)<br>
 ## Home Screen
 https://ibb.co/nPfqj6<br>
 The home screen allows the user to choose the Organizer login or the Presenter login. The organizers are set by the admin so that any random person won't be able to become an organzier.
+
+##Organizer Login
+https://imgur.com/a/ceQ1z
