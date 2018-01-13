@@ -1,5 +1,6 @@
 package kamal.saqib.eventmanager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,13 +10,15 @@ import java.util.Date;
  * Created by Dell on 1/13/2018.
  */
 
-public class Event {
+public class Event implements Serializable{
     Employee organizer;
     ArrayList<Employee> presenter;
     String date;
     String eventname;
     String time;
     String address;
+
+
 
     public String getTime() {
         return time;

@@ -1,17 +1,16 @@
 package kamal.saqib.eventmanager;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView ologin, plogin, signup, ourevents;
+    TextView ologin,plogin,signup,ourevents;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

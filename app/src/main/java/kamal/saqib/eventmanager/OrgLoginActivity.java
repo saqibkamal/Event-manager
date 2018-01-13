@@ -33,7 +33,7 @@ import java.io.Serializable;
 public class OrgLoginActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
-    private ProgressBar progressBar;
+
     private Button  btnLogin, btnReset;
     private boolean loggedIn;
 
@@ -114,7 +114,13 @@ public class OrgLoginActivity extends AppCompatActivity {
                                                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                                                         Employee cus = dataSnapshot.getValue(Employee.class);
                                                         userId = dataSnapshot.getKey();
+                                                        if(cus.getPost().equals("Organizer"))
                                                         toOrganiserActivity(cus);
+                                                        else {
+                                                            Toast.makeText(OrgLoginActivity.this, "You are not an organizer", Toast.LENGTH_LONG).show();
+                                                            return;
+                                                        }
+
 
 
 

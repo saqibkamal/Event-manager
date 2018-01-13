@@ -29,7 +29,7 @@ public class OrganiserDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.org_details);
+        setContentView(R.layout.activity_organiser_details);
 
         nameField = (EditText) findViewById(R.id.name);
         phoneField = (EditText) findViewById(R.id.phone);

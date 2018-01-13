@@ -18,7 +18,17 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".OrganiserDetails" />
-        <activity android:name=".FbWebView"></activity>
+        <activity android:name=".FbWebView"/>
+        <activity android:name=".OrganizerActivity" />
+        <activity android:name=".MyEventlist" />
+        <activity android:name=".alleventlist" />
+        <activity android:name=".addnewevent" />
+        <activity android:name=".PresenterActivity"/>
+        <activity android:name=".PresenterLoginActivity"/>
+        <activity android:name=".ResetPasswordActivity"/>
+        <activity android:name=".SignupActivity"
+            android:label="Sign Up"/>
+
     </application>
 
 </manifest>

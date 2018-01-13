@@ -1,5 +1,6 @@
 package kamal.saqib.eventmanager;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -12,6 +13,9 @@ public class FbWebView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fb_web_view);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Facebook");
 
         webview=(WebView) findViewById(R.id.webView);
 

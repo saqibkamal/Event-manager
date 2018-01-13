@@ -3,6 +3,7 @@ package kamal.saqib.eventmanager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
+
 
 /**
  * Created by Dell on 6/19/2017.
@@ -25,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword, inputName, inputPhone;
-    private Button btnSignIn, btnSignUp, btnResetPassword;
+    private Button btnSignUp;
     //private ProgressBar progressBar;
     private FirebaseAuth auth;
 
@@ -40,6 +43,8 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.presenter_signup);
 
         auth = FirebaseAuth.getInstance();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Sign Up");
 
         //btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.bt_signup);
@@ -47,7 +52,7 @@ public class SignupActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.edtxt_pw1);
         inputName = (EditText) findViewById(R.id.edtxt_uname);
         inputPhone = (EditText) findViewById(R.id.edtxt_re_pw);
-        //btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
+       /// btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
         //********************
         mFirebaseInstance = FirebaseDatabase.getInstance();
 
@@ -56,21 +61,9 @@ public class SignupActivity extends AppCompatActivity {
         mFirebaseInstance.getReference("app_title").setValue("Users and Events");
         //********************
 
-        btnResetPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intey = new Intent(getApplicationContext(), ResetPasswordActivity.class);
-                startActivity(intey);
-                finish();
-            }
-        });
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
+
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,8 +118,7 @@ public class SignupActivity extends AppCompatActivity {
 
                                 } else {
                                     createUser(name, phone, email, post);
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                    finish();
+
                                 }
                             }
                         });
@@ -148,6 +140,15 @@ public class SignupActivity extends AppCompatActivity {
         }
         Employee employee = new Employee(name, phone, email, post);
         mFirebaseDatabase.child(userId).setValue(employee);
+        Intent i=new Intent(getApplicationContext(), PresenterActivity.class);
+        Bundle args = new Bundle();
+        args.putSerializable("employee_detail",(Serializable)employee);
+        i.putExtra("BUNDLE",args);
+
+
+        startActivity(i);
+
+        finish();
 
     }
 

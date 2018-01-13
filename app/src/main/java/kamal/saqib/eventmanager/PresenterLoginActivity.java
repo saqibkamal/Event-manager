@@ -34,7 +34,7 @@ public class PresenterLoginActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
-    private Button btnSignup, btnLogin, btnReset;
+    private Button  btnLogin, btnReset;
     private boolean loggedIn;
 
     //*
@@ -55,7 +55,7 @@ public class PresenterLoginActivity extends AppCompatActivity {
 
         inputEmail = (EditText) findViewById(R.id.edtxt_uname);
         inputPassword = (EditText) findViewById(R.id.edtxt_pw);
-        //btnSignup = (Button) findViewById(R.id.btn_signup);
+       // btnSignup = (Button) findViewById(R.id.btn_signup);
         btnLogin = (Button) findViewById(R.id.bt_login);
         btnReset = (Button) findViewById(R.id.bt_forgot_pw);
         loggedIn = false;
@@ -68,12 +68,7 @@ public class PresenterLoginActivity extends AppCompatActivity {
         mFirebaseInstance.getReference("app_title").setValue("Users and Events");
         //*
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SignupActivity.class));
-            }
-        });
+
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +112,13 @@ public class PresenterLoginActivity extends AppCompatActivity {
                                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                                             Employee cus = dataSnapshot.getValue(Employee.class);
                                             userId = dataSnapshot.getKey();
-                                            toPresenterActivity(cus);
+                                            if(cus.getPost().equals("Presenter"))
+                                                toPresenterActivity(cus);
+                                            else {
+                                                Toast.makeText(PresenterLoginActivity.this, "You are not an Presenter", Toast.LENGTH_LONG).show();
+                                                return;
+                                            }
+
                                             //onDataChange(dataSnapshot);
 
                                         }

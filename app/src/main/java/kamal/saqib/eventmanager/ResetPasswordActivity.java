@@ -2,6 +2,7 @@ package kamal.saqib.eventmanager;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -28,9 +29,12 @@ public class ResetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reset_password);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Reset Password");
+
         inputEmail = (EditText) findViewById(R.id.edtxt_pw);
         btnReset = (Button) findViewById(R.id.bt_reset);
-        //btnBack = (Button) findViewById(R.id.btn_back);
+
 
         auth = FirebaseAuth.getInstance();
 

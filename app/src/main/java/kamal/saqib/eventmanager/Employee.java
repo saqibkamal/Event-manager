@@ -1,12 +1,13 @@
 package kamal.saqib.eventmanager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Dell on 6/23/2017.
  */
 
-public class Employee {
+public class Employee implements Serializable {
     String name;
     String phone;
     String email;
@@ -44,6 +45,10 @@ public class Employee {
         this.event = event;
     }
 
+    public void addEvent(Event event){
+        this.event.add(event);
+    }
+
     public String getFacebookId() {
         return facebookId;
     }
@@ -59,14 +64,18 @@ public class Employee {
     public void setTwitterId(String twitterId) {
         this.twitterId = twitterId;
     }
+    public Employee(){
+        event=new ArrayList<>();
+    }
 
     public Employee(String name, String phone, String email, String post){
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.facebookId = facebookId;
-        this.twitterId = twitterId;
+        this.facebookId = "";
+        this.twitterId = "";
         this.post = post;
+        this.event=new ArrayList<>();
 
     }
 

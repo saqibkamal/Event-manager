@@ -2,6 +2,7 @@ package kamal.saqib.eventmanager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,10 @@ public class PresenterActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.presenter_details);
 
         //setContentView(R.layout.activity_organizer2);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Presenter Details");
+
+        //setContentView(R.layout.activity_organizer2);
         tx1 = (TextView) findViewById(R.id.tv_disp_uname);
         tx2 = (TextView) findViewById(R.id.tv_disp_umail);
 
@@ -46,13 +51,9 @@ public class PresenterActivity extends AppCompatActivity implements View.OnClick
         logout = (Button) findViewById(R.id.bt_logout);
 
 
-        bt_my.setOnClickListener(this);
-        bt_all.setOnClickListener(this);
-        logout.setOnClickListener(this);
-
         Intent intent = getIntent();
-        Bundle args = intent.getBundleExtra("BUNDLE");
-        employee = (Employee) args.getSerializable("employee_detail");
+        Bundle args = intent.getBundleExtra("bundle");
+        employee = (Employee) args.getSerializable("presenterName");
 
         presentername = employee.getName();
 
