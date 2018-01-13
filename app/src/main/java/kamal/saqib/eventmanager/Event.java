@@ -3,7 +3,7 @@ package kamal.saqib.eventmanager;
 import java.util.ArrayList;
 import java.util.Date;
 
-import jdk.internal.util.xml.impl.Pair;
+
 
 /**
  * Created by Dell on 1/13/2018.
@@ -13,14 +13,32 @@ public class Event {
     Employee organizer;
     ArrayList<Employee> presenter;
     String date;
+    String eventname;
+    String time;
     String address;
 
-    public Event(){
+    public String getTime() {
+        return time;
+    }
 
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public Event(){
+        this.presenter=new ArrayList<>();
     }
 
     public Employee getOrganizer() {
         return organizer;
+    }
+
+    public String getEventname() {
+        return eventname;
+    }
+
+    public void setEventname(String eventname) {
+        this.eventname = eventname;
     }
 
     public void setOrganizer(Employee organizer) {

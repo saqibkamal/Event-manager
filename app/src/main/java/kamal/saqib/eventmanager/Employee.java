@@ -60,7 +60,7 @@ public class Employee {
         this.twitterId = twitterId;
     }
 
-    public Employee(String name, String phone, String email, String facebookId, String twitterId, String post){
+    public Employee(String name, String phone, String email, String post){
         this.name = name;
         this.phone = phone;
         this.email = email;
